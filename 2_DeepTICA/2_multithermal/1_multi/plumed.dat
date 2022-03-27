@@ -1,0 +1,23 @@
+
+# vim:ft=plumed
+
+# Compute torsion angles, as well as energy
+MOLINFO STRUCTURE=input.ala2.pdb
+phi: TORSION ATOMS=@phi-2
+psi: TORSION ATOMS=@psi-2
+theta: TORSION ATOMS=6,5,7,9
+xi: TORSION ATOMS=16,15,17,19
+ene: ENERGY
+
+# Compute descriptors
+INCLUDE FILE=../../plumed-distances.dat
+
+# Define multithermal bias
+ecv: ECV_MULTITHERMAL ARG=ene TEMP_MAX=600
+opes: OPES_EXPANDED ARG=ecv.ene PACE=500
+
+# Print 
+PRINT FMT=%g STRIDE=500 FILE=COLVAR ARG=*
+
+ENDPLUMED
+
