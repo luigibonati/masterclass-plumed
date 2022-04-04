@@ -1,0 +1,26 @@
+
+# vim:ft=plumed
+
+# Compute torsion angles, as well as energy
+MOLINFO STRUCTURE=input.ala2.pdb
+phi: TORSION ATOMS=@phi-2
+psi: TORSION ATOMS=@psi-2
+theta: TORSION ATOMS=6,5,7,9
+xi: TORSION ATOMS=16,15,17,19
+ene: ENERGY
+
+# Compute descriptors
+INCLUDE FILE=../../plumed-distances.dat
+
+# Compute DeepTICA CVs
+deep: PYTORCH_MODEL FILE=model.ptc ARG=d_2_5,d_2_6,d_2_7,d_2_9,d_2_11,d_2_15,d_2_16,d_2_17,d_2_19,d_5_6,d_5_7,d_5_9,d_5_11,d_5_15,d_5_16,d_5_17,d_5_19,d_6_7,d_6_9,d_6_11,d_6_15,d_6_16,d_6_17,d_6_19,d_7_9,d_7_11,d_7_15,d_7_16,d_7_17,d_7_19,d_9_11,d_9_15,d_9_16,d_9_17,d_9_19,d_11_15,d_11_16,d_11_17,d_11_19,d_15_16,d_15_17,d_15_19,d_16_17,d_16_19,d_17_19
+
+# Apply OPES bias (combine with the static bias equal to the one obtained at the end of the first simulation)
+static: OPES_METAD RESTART=YES FILE=KERNELS_PSI ARG=psi BARRIER=40 SIGMA=0.15 PACE=50000000 STATE_RFILE=../1_opes-psi/STATE_PSI
+opes: OPES_METAD ARG=deep.node-0 BARRIER=40 PACE=500 STATE_WFILE=STATE
+
+# Print 
+PRINT FMT=%g STRIDE=500 FILE=COLVAR ARG=*
+
+ENDPLUMED
+
