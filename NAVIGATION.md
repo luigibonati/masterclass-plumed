@@ -1,5 +1,7 @@
 # Masterclass 22.05: Machine learning collective variables with Pytorch
 
+This Masterclass describes how to design data-driven collective variables using machine learning (ML) methods. In particular, two methods will be presented. In the first (DeepLDA), the CVs are optimized as classifiers to distinguish metastable states. In the second (DeepTICA) the slow modes of the simulations are extracted from a (biased) simulation and used as CVs. 
+
 This lesson was given as part of the PLUMED masterclass series in 2022.  It includes:
 
 * A first videos that describes the theory.
@@ -13,14 +15,14 @@ This lesson was the fifth masterclass in the 2022 series.
 
 ```mermaid
 flowchart TB;
-  A[ref1] -.-> E[Lecture I];
-  B[ref2] -.-> E;
-  C[ref3] -.-> E;
-  D[ref4] -.-> E;
+  A[PLUMED Syntax] -.-> E[Lecture I];
+  B[OPES] -.-> E;
+  C[Ref: DeepLDA] -.-> E;
+  D[Ref: DeepTICA] -.-> E;
   E ==> F[Instructions];
   F ==> G[Install];
-  G ==> H[DeepLDA notebook];
-  G ==> I[DeepTICA notebook];
+  G ==> H[DeepLDA exercises];
+  G ==> I[DeepTICA exercises];
   H ==> L[Lecture II];
   I ==> L;
   L ==> M[DeepLDA solutions];
@@ -38,3 +40,7 @@ flowchart TB;
   click M "solutions/tutorial1_DeepLDA.ipynb" "A python notebook with the solutions of the exercises on DeepLDA";
   click N "solutions/tutorial2_DeepTICA.ipynb" "A python notebook with the solutions of the exercises on DeepTICA";
 ```
+
+## References
+1. Bonati, Rizzi and Parrinello, [Data-Driven Collective Variables for Enhanced Sampling](https://pubs.acs.org/doi/full/10.1021/acs.jpclett.0c00535), JPCL (2020)
+2. Bonati, Piccini and Parrinello, [Deep learning the slow modes for rare events sampling](https://doi.org/10.1073/pnas.2113533118), PNAS(2021)
