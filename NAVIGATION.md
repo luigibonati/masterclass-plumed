@@ -37,8 +37,8 @@ flowchart TB;
   click H "tutorial1_DeepLDA.ipynb" "A python notebook that discusses the exercises on deepLDA";
   click I "tutorial2_DeepTICA.ipynb" "A python notebook that discusses the exercises on deepTICA";  
   click L "video2" "A lecture that was given on April 4th 2022 as part of the plumed masterclass series that goes through the solutions to the exercises in the lesson";
-  click M "solutions/tutorial1_DeepLDA.ipynb" "A python notebook with the solutions of the exercises on DeepLDA";
-  click N "solutions/tutorial2_DeepTICA.ipynb" "A python notebook with the solutions of the exercises on DeepTICA";
+  click M "solutions/solution1_DeepLDA.ipynb" "A python notebook with the solutions of the exercises on DeepLDA";
+  click N "solutions/solution2_DeepTICA.ipynb" "A python notebook with the solutions of the exercises on DeepTICA";
 ```
 
 ## References
