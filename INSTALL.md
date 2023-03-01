@@ -1,13 +1,20 @@
 # Instructions for installing the software
 
+The following software is required for running this masterclass:
+
+- PLUMED configured with LibTorch + OPES & PyTorch modules
+- mlcvs python library 
+
 ## Install LibTorch
 
-You can download the pre-built LibTorch library from their website. The following script downloads the recommended 1.8.2 LTS version (Linux, CPU, with C++11 ABI compatibility).
+You can follow the [instructions](https://www.plumed.org/doc-master/user-doc/html/_p_y_t_o_r_c_h.html) on the PLUMED manual to download and configure LibTorch. Here we report them for convenience. 
+
+We can download the pre-built LibTorch library from their website. The following script downloads the 1.13.1 version (Linux, CPU, with C++11 ABI compatibility), check [here](https://pytorch.org/) for other platforms/versions.
 
 ```
-wget https://download.pytorch.org/libtorch/lts/1.8/cpu/libtorch-cxx11-abi-shared-with-deps-1.8.2%2Bcpu.zip 
-unzip libtorch-cxx11-abi-shared-with-deps-1.8.2+cpu.zip 
-rm libtorch-cxx11-abi-shared-with-deps-1.8.2+cpu.zip
+wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.13.1%2Bcpu.zip
+unzip libtorch-cxx11-abi-shared-with-deps-1.13.1+cpu.zip 
+rm libtorch-cxx11-abi-shared-with-deps-1.13.1+cpu.zip
 LIBTORCH=${PWD}/libtorch
 ```
 
@@ -28,7 +35,7 @@ echo ". ${LIBTORCH}/sourceme.sh" >> ~/.bashrc
 Download the development version of PLUMED2
 
 ```
-git clone https://github.com/luigibonati/masterclass-plumed.git
+git clone https://github.com/plumed/plumed2.git
 
 cd plumed2
 ./configure --enable-libtorch --enable-modules=all
@@ -73,24 +80,39 @@ echo ". $GROMACS_ROOT/bin/GMXRC.bash" >> ~/.bashrc
 
 ## Install mlcvs
 
-Create a virtual environment named `masterclass22.05` and activate it:
+If you want to use conda you can create an environment named `masterclass22.05`, activate it, and install the required dependencies:
+
+```
+conda create -n masterclass22-05
+conda activate masterclass22-05
+
+conda install numpy pandas matplotlib scikit-learn -c conda-forge
+]conda install pytorch -c pytorch
+```
+
+If you want to use pip: 
 
 ```
 python3 -m venv masterclass22-05
 source masterclass22-05/bin/activate
+
+pip3 install torch --extra-index-url https://download.pytorch.org/whl/cpu
+pip install numpy pandas matplotlib scikit-learn
 ```
 
-First install the dependencies (including the same version of Pytorch 1.8.2!)
+Once the dependencies have been installed you can clone the repository and install the package:
 
 ```
-pip install torch==1.8.2+cpu torchvision==0.9.2+cpu torchaudio==0.8.2 -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html
-pip install numpy pandas matplotlib sklearn
-```
-and then clone the repository and install the package:
-
-```
-git clone https://github.com/luigibonati/mlcvs.git
+git clone https://github.com/luigibonati/mlcvs.git -b v0.1.1
 
 cd mlcvs/
 pip install . 
+```
+
+## Download the data
+
+Download the repository containing the jupyter notebooks and the data for running the simulations:
+
+```
+git clone https://github.com/luigibonati/masterclass-plumed.git
 ```

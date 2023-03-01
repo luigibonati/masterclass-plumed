@@ -1,0 +1,18 @@
+video1:
+  title: Lecture I
+  location: https://www.youtube.com/embed/XsRBGl1wWAU
+video2:
+  title: Lecture II
+  location: https://www.youtube.com/embed/veSnKC9hmWo
+ref1:
+  location: 21/001
+  type: internal
+ref2: 
+  location: 22/003
+  type: internal
+ref3:
+  location: https://pubs.acs.org/doi/full/10.1021/acs.jpclett.0c00535
+  type: external
+ref4:
+  location: https://www.pnas.org/doi/10.1073/pnas.2113533118 
+  type: external
