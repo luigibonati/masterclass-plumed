@@ -49,6 +49,11 @@ To run the simulations we will use GROMACS 2020.6 patched with PLUMED.
 In this tutorial, we will use [mlcvs](https://mlcvs.readthedocs.io/en/latest/), a Python-based package designed for building data-driven collective variables for enhanced sampling simulations. 
 In `mlcvs` we have implemented different kinds of data-driven CVs proposed in the literature, including Deep-LDA and Deep-TICA which we describe in this masterclass.
 
+> [!IMPORTANT]
+> The mlcvs library has been renamed to [mlcolvar](https://mlcolvar.readthedocs.io) and integrated with many other functionalities. Check out the documentation for up-to-date tutorials and examples.
+> 
+> [<img src="https://raw.githubusercontent.com/luigibonati/mlcolvar/main/docs/images/logo_name_black_big.png" width="200" />](https://mlcolvar.readthedocs.io)
+
 ## Using the CVs in PLUMED
 
 Once the models have been trained on the data, we can export them using the jit (just in time) compiler of Pytorch. This creates a Python-independent model, which can be loaded in PLUMED using Pytorch C++ APIs (LibTorch). Of particular relevance is that we can exploit the automatic differentiation feature of Pytorch to compute derivatives of the model with respect to the inputs. 
