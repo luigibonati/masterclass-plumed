@@ -50,7 +50,7 @@ In this tutorial, we will use [mlcvs](https://mlcvs.readthedocs.io/en/latest/), 
 In `mlcvs` we have implemented different kinds of data-driven CVs proposed in the literature, including Deep-LDA and Deep-TICA which we describe in this masterclass.
 
 > [!IMPORTANT]
-> The mlcvs library has been renamed to [mlcolvar](https://mlcolvar.readthedocs.io) and integrated with many other functionalities. Check out the documentation for up-to-date tutorials and examples.
+> The mlcvs library has been renamed to [mlcolvar](https://mlcolvar.readthedocs.io) and integrated with many other functionalities. An older version compatible with the masterclass can be accessed by cloning the `pre-lightning` from the Github [repository](https://github.com/luigibonati/mlcolvar/). However, we suggest to check out the new mlcolvar documentation for up-to-date tutorials and examples for DeepLDA/DeepTICA CVs.
 > 
 > [<img src="https://raw.githubusercontent.com/luigibonati/mlcolvar/main/docs/images/logo_name_black_big.png" width="200" />](https://mlcolvar.readthedocs.io)
 
